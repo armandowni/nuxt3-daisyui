@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 function handleRequest(
   targetRoute: string,
@@ -52,6 +53,10 @@ function findHandlers(baseDir: string, basePath: string) {
   let dirs = fs.readdirSync(path.resolve(baseDir), { withFileTypes: true });
   const router = Router({ mergeParams: true });
 
+  const __filename = fileURLToPath(
+    new URL("../../api/express", import.meta.url)
+  );
+
   dirs = dirs.sort((a, b) => {
     if (a.isDirectory() && b.isDirectory()) return 0;
 
@@ -88,8 +93,8 @@ function findHandlers(baseDir: string, basePath: string) {
       // console.log(route);
     } else if (path.resolve(baseDir, dir.name) !== __filename) {
       const modulePath = path.resolve(baseDir, dir.name);
+      console.log(modulePath);
       const { get, post, put, del, middlewares } = require(modulePath);
-      // console.log(modulePath);
 
       let name = dir.name.slice(0, dir.name.length - 3);
       const isParam = name.startsWith("[") && name.endsWith("]");
@@ -124,6 +129,11 @@ function findHandlers(baseDir: string, basePath: string) {
 }
 
 export function httpRoutes() {
+  const __filename = fileURLToPath(
+    new URL("../../api/express", import.meta.url)
+  );
+  const __dirname = path.resolve(__filename);
+
   const apiRouter = findHandlers(path.resolve(__dirname, "routes"), "");
 
   return { apiRouter };
