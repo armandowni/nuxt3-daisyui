@@ -16,10 +16,9 @@ export default defineNuxtConfig({
   css: ["~/static/global.css"],
   modules: ["@nuxtjs/tailwindcss"],
   serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
-  nitro: {
-    esbuild: {
-      options: {
-        target: "es2020",
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
       },
     },
   },

@@ -49,12 +49,13 @@ function handleRequest(
   };
 }
 
-function findHandlers(baseDir: string, basePath: string) {
+async function findHandlers(baseDir: string, basePath: string) {
   let dirs = fs.readdirSync(path.resolve(baseDir), { withFileTypes: true });
   const router = Router({ mergeParams: true });
+  // console.log(baseDir);
 
   const __filename = fileURLToPath(
-    new URL("../../api/express", import.meta.url)
+    new URL(`file://${baseDir}`, import.meta.url)
   );
 
   dirs = dirs.sort((a, b) => {
@@ -83,7 +84,7 @@ function findHandlers(baseDir: string, basePath: string) {
 
       const route = isParam ? `/:${name}` : `/${name}`;
 
-      const routes = findHandlers(
+      const routes = await findHandlers(
         path.resolve(baseDir, dir.name),
         `${basePath}${route}`
       );
@@ -93,8 +94,14 @@ function findHandlers(baseDir: string, basePath: string) {
       // console.log(route);
     } else if (path.resolve(baseDir, dir.name) !== __filename) {
       const modulePath = path.resolve(baseDir, dir.name);
-      console.log(modulePath);
-      const { get, post, put, del, middlewares } = require(modulePath);
+      const modulePath2 = new URL(`file://${baseDir}`, import.meta.url);
+      console.log("testing");
+      import(`./routes/test/${path.parse(modulePath).name}`).then((data) =>
+        console.log(data)
+      );
+
+      const { get }: any = await import(`./routes/test/index`);
+      // console.log("testing2");
 
       let name = dir.name.slice(0, dir.name.length - 3);
       const isParam = name.startsWith("[") && name.endsWith("]");
@@ -103,38 +110,35 @@ function findHandlers(baseDir: string, basePath: string) {
 
       const route = name === "index" ? "/" : isParam ? `/:${name}` : `/${name}`;
 
-      const options = { GET: get, POST: post, PUT: put, DELETE: del };
+      const options = { GET: get };
       // console.log(`${route}`, get);
 
-      router.get(
-        route,
-        handleRequest(`${basePath}${route}`, options, middlewares)
-      );
-      router.post(
-        route,
-        handleRequest(`${basePath}${route}`, options, middlewares)
-      );
-      router.put(
-        route,
-        handleRequest(`${basePath}${route}`, options, middlewares)
-      );
-      router.delete(
-        route,
-        handleRequest(`${basePath}${route}`, options, middlewares)
-      );
+      router.get(route, handleRequest(`${basePath}${route}`, options));
+      // router.post(
+      //   route,
+      //   handleRequest(`${basePath}${route}`, options, middlewares)
+      // );
+      // router.put(
+      //   route,
+      //   handleRequest(`${basePath}${route}`, options, middlewares)
+      // );
+      // router.delete(
+      //   route,
+      //   handleRequest(`${basePath}${route}`, options, middlewares)
+      // );
     }
   }
 
   return router;
 }
 
-export function httpRoutes() {
+export async function httpRoutes() {
   const __filename = fileURLToPath(
     new URL("../../api/express", import.meta.url)
   );
   const __dirname = path.resolve(__filename);
 
-  const apiRouter = findHandlers(path.resolve(__dirname, "routes"), "");
+  const apiRouter = await findHandlers(path.resolve(__dirname, "routes"), "");
 
   return { apiRouter };
 }
