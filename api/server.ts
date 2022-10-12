@@ -1,5 +1,4 @@
 import "reflect-metadata";
-import * as router from "./express/index";
 import { AppDataSource } from "./data-source";
 
 async function server() {
@@ -10,8 +9,6 @@ async function server() {
     .catch((err) =>
       console.error("Error during Data Source initialization:", err)
     );
-
-  return router;
 }
 
 export default server;

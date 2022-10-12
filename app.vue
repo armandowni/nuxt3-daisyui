@@ -1,6 +1,15 @@
 <template>
-  <div class="bg-red-500">
-    testing
-    <!-- <NuxtWelcome /> -->
+  <div>
+    <!-- <NuxtLayout> -->
+    <NuxtPage />
+    <!-- </NuxtLayout> -->
   </div>
 </template>
+
+<script lang="ts">
+export default {
+  data() {
+    return {};
+  },
+};
+</script>

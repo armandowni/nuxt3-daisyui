@@ -1,7 +1,6 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   head: {
-    title: "Portofoliomi",
+    title: "nuxt3-typeorm",
     htmlAttrs: {
       lang: "en",
     },
@@ -13,13 +12,16 @@ export default defineNuxtConfig({
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  css: ["~/static/global.css"],
+  css: ["~/static/global.css", "@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
+  vite: { build: { chunkSizeWarningLimit: 10000 } },
+  build: {
+    transpile: ["@headlessui/vue"],
+  },
   serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
   typescript: {
     tsConfig: {
-      compilerOptions: {
-      },
+      compilerOptions: {},
     },
   },
 });

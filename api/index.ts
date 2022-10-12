@@ -1,28 +1,15 @@
 import express from "express";
 import cors from "cors";
 import server from "./server";
-// import Test from "./express/routes/test/index";
 import bp from "body-parser";
+import { router } from "./routes";
 
 const app = express();
 app.use(cors());
 app.use(bp.urlencoded({ extended: false }));
-app.use(bp.json());
-// app.use("/test", Test);
+app.use(bp.json({ limit: "20mb" }));
 
-const serve = server();
-
-app.use("/v1", (req, res) => {
-  serve
-    .then(async (s) => {
-      const { apiRouter } = await s.httpRoutes();
-
-      apiRouter(req, res, () => {});
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send("oops... internal server error");
-    });
-});
+server();
+app.use("/v1", router);
 
 export default app;
