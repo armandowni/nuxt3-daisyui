@@ -1,6 +1,8 @@
 export default defineNuxtConfig({
-  head: {
+  meta: {
     title: "nuxt3-typeorm",
+  },
+  head: {
     htmlAttrs: {
       lang: "en",
     },
