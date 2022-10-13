@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
