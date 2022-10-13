@@ -25,9 +25,4 @@ export default defineNuxtConfig({
     transpile: ["@headlessui/vue"],
   },
   serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
-  typescript: {
-    tsConfig: {
-      compilerOptions: {},
-    },
-  },
 });
