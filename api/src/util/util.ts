@@ -1,4 +1,5 @@
-const nodemailer = require("nodemailer");
+import * as nodemailer from "nodemailer"
+
 export declare type Message = {
   emailFrom?: string;
   message: string;
