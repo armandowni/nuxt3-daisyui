@@ -1,8 +1,20 @@
 export default defineNuxtConfig({
-  meta: {
-    title: "nuxt3-typeorm",
+  app: {
+    head: {
+      link: [
+        { rel: "icon", href: "./assets/favicon.ico" },
+        { rel: "stylesheet", href: "./assets/global.css" },
+      ],
+      title: "Nuxt 3 - Typeorm",
+      meta: [
+        {
+          name: "description",
+          content: "This site build with nuxt 3 with typeorm and express",
+        },
+      ],
+    },
   },
-  css: ["~/static/global.css", "@fortawesome/fontawesome-svg-core/styles.css"],
+  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
   vite: { build: { chunkSizeWarningLimit: 10000 } },
   build: {
