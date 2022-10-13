@@ -2,8 +2,7 @@
   <div
     class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0 overflow-x-scroll"
   >
-    tessting
-    <!-- <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
       <div id="header" class="flex flex-col justify-center pt-8 sm:pt-0">
         <span class="text-center font-extrabold text-xl"
           >Template project with</span
@@ -90,7 +89,8 @@
                 <button class="" v-on:click="delData(dataForm)">Submit</button>
                 <button
                   class="bg-blue-500 rounded-md text-white py-3 px-5"
-                s  v-on:click="cancel()"
+                  s
+                  v-on:click="cancel()"
                 >
                   Cancel
                 </button>
@@ -105,7 +105,7 @@
           />
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
