@@ -1,8 +1,6 @@
 import { DataSourceOptions } from "typeorm";
-// import nuxtConfig from "../nuxt.config";
 import { entities } from "./src/db";
 
-// const DB = nuxtConfig.env.DB;
 export const config: DataSourceOptions = {
   name: "default",
   type: "postgres",
