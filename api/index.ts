@@ -1,7 +1,7 @@
-import express from "express";
-import cors from "cors";
+import * as express from "express";
+import * as cors from "cors";
 import server from "./server";
-import bp from "body-parser";
+import * as bp from "body-parser";
 import { router } from "./routes";
 
 const app = express();
