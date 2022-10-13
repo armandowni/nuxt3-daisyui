@@ -14,15 +14,15 @@ export default defineNuxtConfig({
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-  ssr: true,
-  nitro:{
-    preset:"node-server"
-  },
-  css: ["~/static/global.css", "@fortawesome/fontawesome-svg-core/styles.css"],
-  modules: ["@nuxtjs/tailwindcss"],
-  vite: { build: { chunkSizeWarningLimit: 10000 } },
-  build: {
-    transpile: ["@headlessui/vue"],
-  },
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
+  // ssr: true,
+  // nitro:{
+  //   preset:"node-server"
+  // },
+  // css: ["~/static/global.css", "@fortawesome/fontawesome-svg-core/styles.css"],
+  // modules: ["@nuxtjs/tailwindcss"],
+  // vite: { build: { chunkSizeWarningLimit: 10000 } },
+  // build: {
+  //   transpile: ["@headlessui/vue"],
+  // },
+  // serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
 });
