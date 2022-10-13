@@ -1,4 +1,3 @@
-
 export default defineNuxtConfig({
   meta: {
     title: "nuxt3-typeorm",

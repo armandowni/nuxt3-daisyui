@@ -2,7 +2,10 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
@@ -16,7 +19,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
-    "@headlessui/vue": "^0.0.0-insiders.ab78fbd",
+    "@headlessui/vue": "^1.7.3",
     "@nuxtjs/vercel-builder": "^0.23.0",
     "axios": "^0.27.2",
     "core-js": "^3.25.3",
