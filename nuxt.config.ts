@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    // link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   css: ["~/static/global.css", "@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
