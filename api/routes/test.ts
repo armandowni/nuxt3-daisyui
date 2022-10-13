@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/", async (req: Request, res: Response) => {
   // const result = await testRepository.findAndCount();
 
-  res.send("test");
+  res.send([[],0]);
 });
 
 router.post("/", async (req: Request, res: Response) => {
@@ -18,7 +18,7 @@ router.post("/", async (req: Request, res: Response) => {
   if (Object.keys(data).length == 0) throw new Error("data cannot empty");
 
   // const result = await testRepository.save(data);
-  res.send("test");
+  res.send({ message: "Success add data" });
 });
 
 router.put("/:id", async (req: Request, res: Response) => {
