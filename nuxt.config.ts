@@ -20,5 +20,5 @@ export default defineNuxtConfig({
   build: {
     transpile: ["@headlessui/vue"],
   },
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
+  // serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
 });
