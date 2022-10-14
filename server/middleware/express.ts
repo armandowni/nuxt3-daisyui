@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json({ limit: "20mb" }));
 
-server();
+// server();
 app.use("/api/v1", router);
 
 export default app;
