@@ -11,7 +11,7 @@ export const config: DataSourceOptions = {
   database: "d3guldico2husd",
   synchronize: true,
   logging: false,
-  entities: entities,
+  entities: [],
   migrations: ["src/migration/**/*.ts"],
   extra: {
     ssl: {

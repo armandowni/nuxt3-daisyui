@@ -14,11 +14,12 @@ export default defineNuxtConfig({
       ],
     },
   },
+  ssr: true,
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
   vite: { build: { chunkSizeWarningLimit: 10000 } },
   build: {
     transpile: ["@headlessui/vue"],
   },
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
+  // serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
 });
