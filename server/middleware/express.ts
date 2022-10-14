@@ -1,14 +1,15 @@
-import express from 'express'
+import express from "express";
+import cors from "cors";
+// import server from "./server";
+import bp from "body-parser";
+import { router } from "../routes";
 
-const app = express()
+const app = express();
+app.use(cors());
+app.use(bp.urlencoded({ extended: false }));
+app.use(bp.json({ limit: "20mb" }));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}))
+// server();
+app.use("api/v1", router);
 
-app.get('/authentication', (req, res) => {
-    return res.json({
-        auth: true
-    })
-})
-
-export default app
+export default app;
