@@ -1,6 +1,6 @@
 import { DataSourceOptions } from "typeorm";
 import nuxtConfig from "../nuxt.config";
-// import { entities } from "./src/db";
+import { entities } from "./src/db";
 
 const DB = nuxtConfig.env.DB;
 export const config: DataSourceOptions = {
@@ -13,7 +13,7 @@ export const config: DataSourceOptions = {
   database: "d3guldico2husd",
   synchronize: true,
   logging: false,
-  entities: [],
+  entities: entities,
   migrations: ["src/migration/**/*.ts"],
   extra: {
     ssl: {
