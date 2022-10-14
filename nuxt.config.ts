@@ -21,5 +21,12 @@ export default defineNuxtConfig({
   build: {
     transpile: ["@headlessui/vue"],
   },
-  // serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
+  typescript: {
+    tsConfig: {
+      compailerOptions: {
+        emitDecoratorMetadata: true,
+        experimentalDecorators: true,
+      },
+    },
+  },
 });
