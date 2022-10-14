@@ -1,15 +1,15 @@
 import express, { Request, Response } from "express";
-// import { AppDataSource } from "../data-source";
-// import { Test } from "../../server/middleware/src/db/entities/Test";
+import { AppDataSource } from "../data-source";
+import { Test } from "../source/db/entities/Test";
 
-// const testRepository = AppDataSource.getRepository(Test);
+const testRepository = AppDataSource.getRepository(Test);
 
 const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  // const result = await testRepository.findAndCount();
+  const result = await testRepository.findAndCount();
 
-  res.send([[],0]);
+  res.send(result);
 });
 
 router.post("/", async (req: Request, res: Response) => {
