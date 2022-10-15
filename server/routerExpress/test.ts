@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../datasource";
 import { Test } from "../src/db/entities/Test";
 
 const router = express.Router();
