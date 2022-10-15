@@ -5,7 +5,7 @@ import { Test } from "../src/db/entities/Test";
 const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  const testRepository = AppDataSource
+  // const testRepository = AppDataSource.getRepository(Test)
   // const result = await testRepository.findAndCount();
 
   res.send([[],0]);
