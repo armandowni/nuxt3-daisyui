@@ -1,4 +1,3 @@
-
 export default defineNuxtConfig({
   app: {
     head: {
@@ -22,15 +21,4 @@ export default defineNuxtConfig({
   build: {
     transpile: ["@headlessui/vue"],
   },
-  nitro: {
-    hooks: {
-        'rollup:before'(ctx) {
-            ctx.options.moduleSideEffects.push('reflect-metadata')
-        }
-    }
-},
-  typescript: {
-    strict: true,
-  },
-  
 });
