@@ -8,9 +8,9 @@ export const config: DataSourceOptions = {
   host: "localhost",
   username: "postgres",
   password: "admin123",
-  database: "postgres",
+  database: "testingdb",
   synchronize: true,
   logging: false,
   entities: entities,
-  migrations: ["./api/src/migration/*.js"],
+  migrations: ["./util/migration/*.js"],
 };

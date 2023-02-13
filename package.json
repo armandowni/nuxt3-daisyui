@@ -2,32 +2,32 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 3007",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typeorm": "typeorm-ts-node-esm -d ./server/database/datasource-db.ts",
     "migration:create": "npx typeorm migration:create ./server/database/util/migration",
-    "migration:generate": "npm run typeorm migration:generate ./server/database/util/migration/migration -n",
-    "migration:run": "npm run typeorm migration:run",
-    "migration:revert": "npm run typeorm migration:revert"
+    "migration:generate": "yarn typeorm migration:generate ./server/database/util/migration/migration -o",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14"
+  },
+  "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@headlessui/vue": "^1.7.3",
     "@nuxtjs/tailwindcss": "^5.3.3",
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.14",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "nodemailer": "^6.8.0",
-    "nuxt": "3.0.0-rc.11"
-  },
-  "dependencies": {
+    "nuxt": "3.0.0-rc.11",
     "pg": "^8.9.0",
     "ts-node": "^10.9.1",
     "typeorm": "^0.3.12",

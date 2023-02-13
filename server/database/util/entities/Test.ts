@@ -2,14 +2,14 @@ import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TrackedEntity } from "../interface/tracked";
 
 
-@Entity("Test", { schema: "nuxt3Typeorm" })
+@Entity("Test", { schema: "nuxtTypeorm" })
 export class Test extends TrackedEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column()
-  name: string;
+  @Column('varchar')
+  name:string;
 
-  @Column({ nullable: true })
-  age: number;
+  @Column('int', { nullable: true })
+  age:number;
 }

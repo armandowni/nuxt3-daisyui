@@ -7,7 +7,7 @@ library.add(fas);
 library.add(fab);
 config.autoAddCss = false;
 
+// @ts-ignore
 export default defineNuxtPlugin((nuxtApp) => {
-  // @ts-ignore
   return nuxtApp.vueApp.component("font-awesome-icon", FontAwesomeIcon, {});
 });
