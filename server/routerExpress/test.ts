@@ -1,12 +1,12 @@
 import express, { Request, Response } from "express";
+import { TestRepository } from "../database/util/repositories";
 
 const router = express.Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  // const testRepository = AppDataSource.getRepository(Test)
-  // const result = await testRepository.findAndCount();
+  const result = await TestRepository.findAndCount();
 
-  res.send([[],0]);
+  res.send(result);
 });
 
 router.post("/", async (req: Request, res: Response) => {
