@@ -4,13 +4,13 @@ import { entities } from "./util/index";
 export const config: DataSourceOptions = {
   name: "default",
   type: "postgres",
-  port: 5432,
+  port: 5431,
   host: "localhost",
   username: "postgres",
-  password: "admin123",
-  database: "postgres",
-  synchronize: true,
+  password: "password",
+  database: "nuxt3Typeorm",
+  synchronize: false,
   logging: false,
   entities: entities,
-  migrations: ["./api/src/migration/*.js"],
+  migrations: ["./server/database/util/migration/*.js"],
 };
