@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import bp from "body-parser";
 import { router } from "../routerExpress";
-import serverdb from "../database/serverdb";
+import serverdb from "../db/serverdb";
 
 const app = express();
 app.use(cors());

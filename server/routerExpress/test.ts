@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { TestRepository } from "../database/util/repositories";
+import { TestRepository } from "../db/util/repositories";
 
 const router = express.Router();
 
