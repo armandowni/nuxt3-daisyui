@@ -20,6 +20,6 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
   vite: { build: { chunkSizeWarningLimit: 10000 } },
   build: {
-    transpile: ["@headlessui/vue","parse5"],
+    transpile: ["@headlessui/vue"],
   },
 });
