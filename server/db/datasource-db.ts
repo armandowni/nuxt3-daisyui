@@ -1,5 +1,5 @@
-// import { DataSource } from "typeorm";
-// import { config } from "./ormconfig";
+import { DataSource } from "typeorm";
+import { config } from "./ormconfig";
 
-// export const AppDataSource = new DataSource(config);
+export const AppDataSource = new DataSource(config);
 

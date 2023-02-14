@@ -1,3 +1,3 @@
-// import { Test } from "../util/entities/Test";
+import { Test } from "../util/entities/Test";
 
-// export const entities = [Test];
+export const entities = [Test];
