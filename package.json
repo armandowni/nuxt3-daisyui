@@ -26,6 +26,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@headlessui/vue": "^1.7.3",
     "@nuxtjs/tailwindcss": "^5.3.3",
+    "@nuxtjs/vercel-builder": "^0.24.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^4.18.1",
