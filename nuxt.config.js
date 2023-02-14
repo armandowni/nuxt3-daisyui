@@ -14,8 +14,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  ssr: true,
-  target: 'server',
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
   vite: { build: { chunkSizeWarningLimit: 10000 } },
