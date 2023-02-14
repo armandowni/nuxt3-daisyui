@@ -2,6 +2,9 @@
   "name": "nuxt-typeorm",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <17.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3007",
