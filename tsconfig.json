@@ -1,37 +1,4 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "target": "ES2015",
-    "jsx": "preserve",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "lib": [
-      "ESNext",
-      "ESNext.AsyncIterable",
-      "DOM",
-      "ES5",
-      "ES6"
-    ],
-    "esModuleInterop": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "strict": false,
-    "noEmit": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
-    },
-    "types": [
-      "@types/node"
-    ]
-  },
-  "exclude": ["node_modules", ".nuxt", "dist"]
 }
