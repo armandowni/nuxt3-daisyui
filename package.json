@@ -1,4 +1,6 @@
 {
+  "name": "nuxt-typeorm",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -7,10 +9,11 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typeorm": "typeorm-ts-node-esm -d ./server/database/datasource-db.ts",
-    "migration:create": "npx typeorm migration:create ./server/database/util/migration",
-    "migration:generate": "yarn typeorm migration:generate ./server/database/util/migration/migration -o",
-    "migration:run": "yarn typeorm migration:run",
-    "migration:revert": "yarn typeorm migration:revert"
+    "migration:create": "npx typeorm migration:create ./server/database/util/migration/migration -o",
+    "migration:generate": "npm run typeorm migration:generate -- ./server/database/util/migration/migration -o",
+    "migration:run": "npm run typeorm migration:run",
+    "migration:show": "npm run typeorm migration:show",
+    "migration:revert": "npm run typeorm migration:revert"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -29,8 +32,9 @@
     "nodemailer": "^6.8.0",
     "nuxt": "3.0.0-rc.11",
     "pg": "^8.9.0",
+    "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
-    "typeorm": "^0.3.12",
+    "typeorm": "0.3.11",
     "typescript": "^4.9.5"
   }
 }
