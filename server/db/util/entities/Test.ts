@@ -1,23 +1,14 @@
-import { EntitySchema } from "typeorm";
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TrackedEntity } from "../interface/tracked";
 
-export const Test = new EntitySchema({
-  schema: "nuxtTypeorm",
-  name: "Test",
-  tableName: "test",
-  extends: "BaseSchema",
-  columns: {
-    id: {
-      primary: true,
-      type: "int",
-      generated: true,
-    },
-    name: {
-      type: "varchar",
-    },
-    age: {
-      type: "int8",
-    },
-    ...TrackedEntity
-  },
-});
+@Entity("Test", { schema: "nuxtTypeorm" })
+export class Test extends TrackedEntity {
+  @PrimaryGeneratedColumn("increment")
+  id: number;
+
+  @Column("varchar")
+  name: string;
+
+  @Column("int", { nullable: true })
+  age: number;
+}

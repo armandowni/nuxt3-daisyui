@@ -12,15 +12,16 @@ app.use(bp.json({ limit: "20mb" }));
 
 const serverDB = serverdb()
 
-app.use("/api/v1", (req, res) => {
-    serverDB.then((s) => {
-        const router = s;
+// app.use("/api/v1", (req, res) => {
+//     serverDB.then((s) => {
+//         const router = s;
 
-        router(req, res, () => { });
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).send("oops... internal server error");
-    });
-});
+//         router(req, res, () => { });
+//     }).catch((err) => {
+//         console.log(err);
+//         res.status(500).send("oops... internal server error");
+//     });
+// });
+app.use("/api/v1", router);
 
 export default app;
