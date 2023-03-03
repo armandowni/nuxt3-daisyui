@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from "nuxt";
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -14,10 +16,15 @@ export default defineNuxtConfig({
       ],
     },
   },
+  target: 'server',
+  ssr: true,
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
   vite: { build: { chunkSizeWarningLimit: 10000 } },
   build: {
-    transpile: ["@headlessui/vue", "parse5"],
+    transpile: ["@headlessui/vue"],
   },
+  serverMiddleware: [
+    { path: "/api", handler: "~/server-middleware/index.ts" },
+  ],
 });

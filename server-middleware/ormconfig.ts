@@ -1,5 +1,5 @@
 import { DataSourceOptions } from "typeorm";
-import { entities } from "./util/index";
+import { entities } from "./db/index";
 
 export const config: DataSourceOptions = {
   name: "default",

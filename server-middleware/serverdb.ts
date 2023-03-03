@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { router } from "../routerExpress";
+import { router } from "../server-middleware/routerExpress";
 import { AppDataSource } from "./datasource-db";
 
 async function serverdb() {
