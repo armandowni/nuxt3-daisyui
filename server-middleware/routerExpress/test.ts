@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
-import { TestRepository } from "../database/util/repositories";
+import { TestRepository } from "../db/repoEntity";
 
 const router = express.Router();
-
+// const result = {name:"test"}
 router.get("/", async (req: Request, res: Response) => {
   const result = await TestRepository.findAndCount();
 
@@ -11,7 +11,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   const data = req.body;
-
+  data.status |= 2;
   if (Object.keys(data).length == 0) throw new Error("data cannot empty");
 
   const result = await TestRepository.save(data);

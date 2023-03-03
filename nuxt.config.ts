@@ -1,4 +1,4 @@
-require("dotenv").config();
+import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
   app: {
@@ -16,6 +16,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  target: 'server',
   ssr: true,
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
@@ -23,4 +24,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ["@headlessui/vue"],
   },
+  serverMiddleware: [
+    { path: "/api", handler: "~/server-middleware/index.ts" },
+  ],
 });

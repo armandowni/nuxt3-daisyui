@@ -2,6 +2,9 @@
   "name": "nuxt-typeorm",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <17.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev --port 3007",
@@ -16,8 +19,7 @@
     "migration:revert": "npm run typeorm migration:revert"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.14"
+    "@types/cors": "^2.8.12"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -25,16 +27,16 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@headlessui/vue": "^1.7.3",
-    "@nuxtjs/tailwindcss": "^5.3.3",
+    "@nuxtjs/tailwindcss": "^6.4.0",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.18.1",
     "nodemailer": "^6.8.0",
-    "nuxt": "3.0.0-rc.11",
+    "nuxt": "3.0.0-rc.8",
     "pg": "^8.9.0",
-    "rimraf": "^4.1.2",
     "ts-node": "^10.9.1",
-    "typeorm": "0.3.11",
+    "typeorm": "0.3.7",
     "typescript": "^4.9.5"
   }
 }

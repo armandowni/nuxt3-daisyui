@@ -1,42 +1,40 @@
-# Nuxt 3 Minimal Starter
+# Template Project Nuxt 3-Typeorm-Express
+Hello guys this is a template project based nuxt framework. I add some framework like vuetify, express, and typeorm.
+I hope this template makes you easier to build a website. Enjoy this template guys
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## Build Setup Nuxt
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+# install dependencies
+$ yarn install
+# serve with hot reload at localhost:3007
+$ yarn dev
+# build for production and launch server
+$ yarn build
+$ yarn start
+# generate static project
+$ yarn generate
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+## Build Setup Typeorm
 
 ```bash
-npm run dev
+# automatic build migration
+$ yarn migration:generate
+# run migration
+$ yarn migration:run
 ```
 
-## Production
-
-Build the application for production:
+## For documentation
 
 ```bash
-npm run build
+# nuxt
+https://nuxtjs.org/
+# typeorm
+https://typeorm.io/
+# express
+https://expressjs.com/
 ```
 
-Locally preview production build:
 
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+## for website example -> https://nuxt3-app-liart-three.vercel.app/
