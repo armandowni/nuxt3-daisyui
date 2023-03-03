@@ -22,9 +22,28 @@
           <td class="py-3 px-5">{{ index + 1 }}.</td>
           <td class="py-3 px-5">{{ data.name }}</td>
           <td class="py-3 px-5">{{ data.age }}</td>
-          <td class="py-3 px-5 flex gap-3 justify-end">
-            <font-awesome-icon icon="fas fa-pencil" class="cursor-pointer" v-on:click="editDialog(data)"/>
-            <font-awesome-icon icon="fas fa-trash" class="cursor-pointer" v-on:click="delDialog(data)"/>
+          <td class="py-3 px-5">
+            {{
+              (data.status & 2) == 2
+                ? "Nuxt App 3"
+                : (data.status & 1) == 1
+                ? "Nuxt App 2"
+                : "Unknown"
+            }}
+          </td>
+          <td class="py-3 px-5">
+            <div class="flex gap-3 justify-end" v-if="(data.status & 2) == 2">
+              <font-awesome-icon
+                icon="fas fa-pencil"
+                class="cursor-pointer"
+                v-on:click="editDialog(data)"
+              />
+              <font-awesome-icon
+                icon="fas fa-trash"
+                class="cursor-pointer"
+                v-on:click="delDialog(data)"
+              />
+            </div>
           </td>
         </tr>
       </tbody>
@@ -44,7 +63,7 @@ export default {
   },
   data() {
     return {
-      headers: ["No.", "Name", "Age"],
+      headers: ["No.", "Name", "Age", "From"],
     };
   },
 };

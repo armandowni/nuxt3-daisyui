@@ -11,7 +11,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
   const data = req.body;
-
+  data.status |= 2;
   if (Object.keys(data).length == 0) throw new Error("data cannot empty");
 
   const result = await TestRepository.save(data);

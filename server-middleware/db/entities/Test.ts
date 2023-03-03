@@ -11,4 +11,8 @@ export class Test extends TrackedEntity {
 
   @Column("int", { nullable: true })
   age: number;
+
+  // status 1 = from nuxt 2, status 2 = from nuxt 3
+  @Column("int", { nullable: true })
+  status: number;
 }
