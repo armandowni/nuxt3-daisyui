@@ -13,9 +13,4 @@ export const config: DataSourceOptions = {
   logging: false,
   entities: entities,
   migrations: ["./util/migration/*.js"],
-  extra: {
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
 };
