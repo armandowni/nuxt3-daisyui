@@ -37,4 +37,4 @@ https://expressjs.com/
 ```
 
 
-## for website example -> https://nuxt3-app-liart-three.vercel.app/
+## for website example -> https://nuxt3-typeorm.armandowni.com/
