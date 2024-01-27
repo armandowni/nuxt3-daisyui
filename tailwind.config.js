@@ -19,4 +19,5 @@ module.exports = {
       transitionProperty: ["hover", "focus"],
     },
   },
+  plugins: [require("daisyui")],
 };
