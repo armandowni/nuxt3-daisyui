@@ -32,7 +32,7 @@
             }}
           </td>
           <td class="py-3 px-5">
-            <div class="flex gap-3 justify-end" v-if="(data.status & 2) == 2">
+            <div class="flex gap-3 justify-end" v-if="(data?.status & 2) == 2">
               <font-awesome-icon
                 icon="fas fa-pencil"
                 class="cursor-pointer"
@@ -51,20 +51,14 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    dataTable: {
-      type: Array,
-      default: [],
-    },
-    editDialog: Function,
-    delDialog: Function,
+<script setup lang="ts">
+const headers = ["No.", "Name", "Age", "From"];
+const props = defineProps({
+  dataTable: {
+    type: Array,
+    default: [],
   },
-  data() {
-    return {
-      headers: ["No.", "Name", "Age", "From"],
-    };
-  },
-};
+  editDialog: Function,
+  delDialog: Function,
+});
 </script>

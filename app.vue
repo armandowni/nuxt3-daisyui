@@ -6,10 +6,4 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
+<script setup lang="ts"></script>

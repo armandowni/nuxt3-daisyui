@@ -1,12 +1,9 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [
-        { rel: "icon", href: "./assets/favicon.ico" },
-        { rel: "stylesheet", href: "./assets/global.css" },
-      ],
+      link: [{ rel: "icon", href: "~/assets/favicon.ico" }],
       title: "Nuxt 3 - Typeorm",
       meta: [
         {
@@ -16,15 +13,10 @@ export default defineNuxtConfig({
       ],
     },
   },
-  target: 'server',
-  ssr: true,
+  runtimeConfig: {
+    API_URL: process.env.NUXT_API_SECRET,
+  },
+  ssr: false,
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
-  vite: { build: { chunkSizeWarningLimit: 10000 } },
-  build: {
-    transpile: ["@headlessui/vue"],
-  },
-  serverMiddleware: [
-    { path: "/api", handler: "~/server-middleware/index.ts" },
-  ],
 });

@@ -1,17 +1,24 @@
 import axios from "axios";
 
 const API_VER = "v1";
-const headers = { "content-type": "application/json" };
 
-export function useApi(config?: any) {
-  
-  const base_path = `/api/${API_VER}`;
+export function useApi(baseUrl: string, config?: any) {
+  if (!baseUrl) throw new Error("base url is undefined");
+
+  const api = axios.create({
+    // baseURL: process.env.NUXT_API_SECRET,
+    headers: { "content-type": "application/json" },
+  });
+
+  // console.log(configNuxt);
+
+  const base_path = `${baseUrl}/api/${API_VER}`;
 
   const get = async (url: string, query?: string) => {
     const path = base_path + url;
 
-    const result = await axios
-      .get(path, { headers: headers })
+    const result = await api
+      .get(path)
       .then((result) => result.data)
       .catch((err) => err);
 
@@ -21,7 +28,7 @@ export function useApi(config?: any) {
     const path = base_path + url;
 
     const result = await axios
-      .post(path, data, { headers: headers })
+      .post(path, data)
       .then((result) => result.data)
       .catch((err) => err);
 
@@ -31,7 +38,7 @@ export function useApi(config?: any) {
     const path = base_path + url;
 
     const result = await axios
-      .put(path, data, { headers: headers })
+      .put(path, data)
       .then((result) => result.data)
       .catch((err) => err);
 
@@ -40,7 +47,7 @@ export function useApi(config?: any) {
   const del = async (url: string) => {
     const path = base_path + url;
     const result = await axios
-      .delete(path, { headers: headers })
+      .delete(path)
       .then((result) => result.data)
       .catch((err) => err);
 
