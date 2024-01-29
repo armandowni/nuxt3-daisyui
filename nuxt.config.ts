@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: "icon", href: "~/assets/favicon.ico" }],
-      title: "Nuxt 3 - Typeorm",
+      title: "Nuxt 3 - DaisyUI",
       meta: [
         {
           name: "description",
