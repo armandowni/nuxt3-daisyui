@@ -35,14 +35,11 @@
             Add Data
           </button>
           <Modal
-            dialogName="formInput"
             title="Input Form"
-            :onCloseModal="openDialog"
+            :closeModal="openDialog"
+            :isDialog="isModalAddEdit"
           >
-            <div
-              class="flex flex-col justify-center items-center gap-2 w-22"
-              name="test"
-            >
+            <div class="flex flex-col justify-center items-center gap-2 w-22">
               <span class="text-red-500">{{ errorMessage }}</span>
               <Field title="Name" :required="true">
                 <input type="text" v-model="dataSelected.name" name="name" />
@@ -71,7 +68,11 @@
               </div>
             </div>
           </Modal>
-          <Modal dialogName="formDel" title="Delete Form">
+          <Modal
+            title="Delete Form"
+            :closeModal="openDialogDelete"
+            :isDialog="isModalDelete"
+          >
             <div class="w-full">
               <span>Are you sure want to delete {{ dataSelected?.name }}?</span>
               <div class="flex gap-5" id="buttons">
@@ -107,34 +108,36 @@ import fetchData from "../util/fetchData";
 
 let resultDataTable: any[] = [];
 let isDataSelected = false;
+const isModalAddEdit = ref(false);
+const isModalDelete = ref(false);
 const dataSelected = ref({ name: "", age: null });
 const errorMessage = ref("");
 
 function openDialog(data?: any) {
-  const modalInput: any = document?.getElementById("formInput");
-  if (data) {
-    isDataSelected = true;
-    dataSelected.value = { ...data };
-  }
-
-  if (modalInput.open) {
+  if (isModalAddEdit.value) {
     isDataSelected = false;
     dataSelected.value = { name: "", age: null };
-    return modalInput.close();
-  } else modalInput.showModal();
+    return (isModalAddEdit.value = false);
+  } else {
+    isModalAddEdit.value = true;
+    if (data) {
+      isDataSelected = true;
+      dataSelected.value = { ...data };
+    }
+  }
 }
 function openDialogDelete(data?: any) {
-  const modalDelete: any = document?.getElementById("formDel");
-  if (data) {
-    isDataSelected = true;
-    dataSelected.value = { ...data };
-  }
-
-  if (modalDelete.open) {
+  if (isModalDelete.value) {
     isDataSelected = false;
     dataSelected.value = { name: "", age: null };
-    return modalDelete.close();
-  } else modalDelete.showModal();
+    return (isModalDelete.value = false);
+  } else {
+    isModalDelete.value = true;
+    if (data) {
+      isDataSelected = true;
+      dataSelected.value = { ...data };
+    }
+  }
 }
 async function getData() {
   const result = await fetchData("/test", "get");
