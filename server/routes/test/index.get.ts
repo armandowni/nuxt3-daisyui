@@ -5,7 +5,7 @@ export default defineEventHandler(async () => {
 
   try {
     const data = await api.get("/test");
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return error;

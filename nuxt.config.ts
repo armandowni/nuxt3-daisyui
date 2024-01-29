@@ -13,6 +13,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   runtimeConfig: {
     API_URL: process.env.NUXT_API_SECRET,
   },

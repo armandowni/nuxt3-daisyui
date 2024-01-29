@@ -15,6 +15,14 @@
           >
             <LogoNuxt />
           </a>
+          <span class="text-6xl">+</span>
+          <a
+            class="flex justify-center sm:pt-0"
+            href="https://daisyui.com/"
+            target="_blank"
+          >
+            <LogoDaisy />
+          </a>
         </div>
       </div>
       <div class="mt-5 bg-white shadow sm:rounded-lg p-0 md:px-5 py-2 w-full">
@@ -36,28 +44,16 @@
               name="test"
             >
               <span class="text-red-500">{{ errorMessage }}</span>
-              <div class="border-2 border-gray-200 rounded-md">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  v-model="dataSelected.name"
-                  name="name"
-                  class="py-1 pl-3"
-                />
-              </div>
-              <div class="border-2 border-gray-200 rounded-md">
-                <input
-                  type="number"
-                  placeholder="Age"
-                  v-model="dataSelected.age"
-                  name="age"
-                  class="py-1 pl-3"
-                />
-              </div>
+              <Field title="Name" :required="true">
+                <input type="text" v-model="dataSelected.name" name="name" />
+              </Field>
+              <Field title="Age" :required="true">
+                <input type="number" v-model="dataSelected.age" name="age" />
+              </Field>
 
               <div class="flex gap-5" id="buttons">
                 <button
-                  class=""
+                  class="bg-blue-500 text-white px-4 py-2 rounded-xl"
                   v-on:click="
                     !isDataSelected
                       ? addData(dataSelected)
@@ -66,7 +62,12 @@
                 >
                   Submit
                 </button>
-                <button class="" v-on:click="openDialog()">Cancel</button>
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded-xl"
+                  v-on:click="openDialog()"
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </Modal>
@@ -74,10 +75,18 @@
             <div class="w-full">
               <span>Are you sure want to delete {{ dataSelected?.name }}?</span>
               <div class="flex gap-5" id="buttons">
-                <button class="" v-on:click="delData(dataSelected)">
+                <button
+                  class="bg-blue-500 text-white px-4 py-2 rounded-xl"
+                  v-on:click="delData(dataSelected)"
+                >
                   Submit
                 </button>
-                <button class="" v-on:click="openDialogDelete()">Cancel</button>
+                <button
+                  class="bg-red-500 text-white px-4 py-2 rounded-xl"
+                  v-on:click="openDialogDelete()"
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </Modal>

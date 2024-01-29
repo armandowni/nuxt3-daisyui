@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const data = await api.post("/test", body);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return error;

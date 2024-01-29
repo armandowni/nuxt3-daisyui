@@ -1,7 +1,6 @@
 # Template Project Nuxt3
 
-The project template combining Nuxt 3, TypeORM, and Express brings together a powerful and versatile stack for building modern web applications. Nuxt 3 serves as the frontend framework, offering an intuitive and flexible structure for creating robust client-side applications with Vue.js. TypeORM, a robust Object-Relational Mapping (ORM) library for TypeScript and JavaScript, seamlessly integrates with Express, providing a solid foundation for server-side logic and database connectivity. Express, a fast and minimalist web framework, complements Nuxt 3 and TypeORM by handling server-side operations efficiently. This template is well-suited for developers seeking a full-stack solution, enabling seamless integration of frontend, backend, and database components. With Nuxt 3's improved performance, TypeORM's database handling capabilities, and Express's simplicity, this project template empowers developers to build scalable, maintainable, and feature-rich applications.
-
+The template project integrates the features of Nuxt 3 and DaisyUI, offering a powerful foundation for modern web application development. Nuxt 3, built on Vue.js, provides a modular and extensible architecture, enhancing scalability and performance. Organized following Nuxt 3 conventions, the project structure encompasses pages, layouts, and components in a modular design
 
 ## Build Setup Nuxt
 
