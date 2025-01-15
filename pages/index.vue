@@ -109,7 +109,6 @@ async function getData() {
     const bStatus = (b.status & 2) === 2 ? 1 : 0;
     return bStatus - aStatus;
   }) || [];
-  console.log(resultDataTable);
   return;
 }
 async function addData(data: any) {

@@ -3,7 +3,7 @@ import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [{ rel: "icon", href: "~/assets/favicon.ico" }],
+      link: [{ rel: "icon", href: "favicon.ico" }],
       title: "Nuxt 3 - DaisyUI",
       meta: [
         {
