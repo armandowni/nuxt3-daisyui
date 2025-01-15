@@ -1,7 +1,8 @@
 import { useApi } from "../../serverHandlerApi";
 
 export default defineEventHandler(async () => {
-  const api = useApi(useRuntimeConfig().API_URL);
+  const env = useRuntimeConfig();
+  const api = useApi(env.API_URL + env.API_PATHNAME);
 
   try {
     const data = await api.get("/test");

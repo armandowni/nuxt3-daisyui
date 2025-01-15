@@ -1,44 +1,26 @@
 <template>
   <div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0 overflow-x-scroll"
-  >
+    class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0 overflow-x-scroll">
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
       <div id="header" class="flex flex-col justify-center pt-8 sm:pt-0">
-        <span class="text-center font-extrabold text-xl"
-          >Template project with</span
-        >
+        <span class="text-center font-extrabold text-xl">Template project with</span>
         <div class="flex flex-col lg:flex-row items-center gap-0 lg:gap-2">
-          <a
-            class="flex justify-center sm:pt-0"
-            href="https://nuxtjs.org"
-            target="_blank"
-          >
+          <a class="flex justify-center sm:pt-0" href="https://nuxtjs.org" target="_blank">
             <LogoNuxt />
           </a>
           <span class="text-6xl">+</span>
-          <a
-            class="flex justify-center sm:pt-0"
-            href="https://daisyui.com/"
-            target="_blank"
-          >
+          <a class="flex justify-center sm:pt-0" href="https://daisyui.com/" target="_blank">
             <LogoDaisy />
           </a>
         </div>
       </div>
-      <div class="mt-5 bg-white shadow sm:rounded-lg p-0 md:px-5 py-2 w-full">
+      <div class="mt-5 bg-white shadow sm:rounded-lg p-0 md:px-5 py-2 w-full pb-10">
         <div class="font-bold text-2xl pb-3 px-3 lg:px-0">Here the example</div>
         <div class="w-full border-0 md:border-2 rounded-md p-5">
-          <button
-            class="bg-blue-600 rounded-md text-white px-5 py-2 mb-5 text-sm"
-            @click="openDialog()"
-          >
+          <button class="bg-blue-600 rounded-md text-white px-5 py-2 mb-5 text-sm" @click="openDialog()">
             Add Data
           </button>
-          <Modal
-            title="Input Form"
-            :closeModal="openDialog"
-            :isDialog="isModalAddEdit"
-          >
+          <Modal title="Input Form" :closeModal="openDialog" :isDialog="isModalAddEdit">
             <div class="flex flex-col justify-center items-center gap-2 w-22">
               <span class="text-red-500">{{ errorMessage }}</span>
               <Field title="Name" :required="true">
@@ -49,54 +31,34 @@
               </Field>
 
               <div class="flex gap-5" id="buttons">
-                <button
-                  class="bg-blue-500 text-white px-4 py-2 rounded-xl"
-                  v-on:click="
-                    !isDataSelected
-                      ? addData(dataSelected)
-                      : editData(dataSelected)
-                  "
-                >
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-xl" v-on:click="
+                  !isDataSelected
+                    ? addData(dataSelected)
+                    : editData(dataSelected)
+                  ">
                   Submit
                 </button>
-                <button
-                  class="bg-red-500 text-white px-4 py-2 rounded-xl"
-                  v-on:click="openDialog()"
-                >
+                <button class="bg-red-500 text-white px-4 py-2 rounded-xl" v-on:click="openDialog()">
                   Cancel
                 </button>
               </div>
             </div>
           </Modal>
-          <Modal
-            title="Delete Form"
-            :closeModal="openDialogDelete"
-            :isDialog="isModalDelete"
-          >
+          <Modal title="Delete Form" :closeModal="openDialogDelete" :isDialog="isModalDelete">
             <div class="w-full">
               <span>Are you sure want to delete {{ dataSelected?.name }}?</span>
               <div class="flex gap-5" id="buttons">
-                <button
-                  class="bg-blue-500 text-white px-4 py-2 rounded-xl"
-                  v-on:click="delData(dataSelected)"
-                >
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-xl" v-on:click="delData(dataSelected)">
                   Submit
                 </button>
-                <button
-                  class="bg-red-500 text-white px-4 py-2 rounded-xl"
-                  v-on:click="openDialogDelete()"
-                >
+                <button class="bg-red-500 text-white px-4 py-2 rounded-xl" v-on:click="openDialogDelete()">
                   Cancel
                 </button>
               </div>
             </div>
           </Modal>
 
-          <Table
-            :dataTable="resultDataTable"
-            :editDialog="openDialog"
-            :delDialog="openDialogDelete"
-          />
+          <Table :dataTable="resultDataTable" :editDialog="openDialog" :delDialog="openDialogDelete" />
         </div>
       </div>
     </div>
@@ -104,6 +66,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import fetchData from "../util/fetchData";
 
 let resultDataTable: any[] = [];
@@ -141,8 +104,12 @@ function openDialogDelete(data?: any) {
 }
 async function getData() {
   const result = await fetchData("/test", "get");
-  // console.log(result);
-  resultDataTable = result.data;
+  resultDataTable = result?.data[0].sort((a: any, b: any) => {
+    const aStatus = (a.status & 2) === 2 ? 1 : 0;
+    const bStatus = (b.status & 2) === 2 ? 1 : 0;
+    return bStatus - aStatus;
+  }) || [];
+  console.log(resultDataTable);
   return;
 }
 async function addData(data: any) {

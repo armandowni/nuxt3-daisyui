@@ -3,22 +3,14 @@
     <table class="min-w-full w-max">
       <thead>
         <tr class="bg-black text-white">
-          <td
-            v-for="(header, index) in headers"
-            v-bind:key="index"
-            class="py-3 px-5"
-          >
+          <td v-for="(header, index) in headers" v-bind:key="index" class="py-3 px-5">
             {{ header }}
           </td>
           <td></td>
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(data, index) in dataTable"
-          v-bind:key="index"
-          class="border-b"
-        >
+        <tr v-for="(data, index) in dataTable" v-bind:key="index" class="border-b">
           <td class="py-3 px-5">{{ index + 1 }}.</td>
           <td class="py-3 px-5">{{ data.name }}</td>
           <td class="py-3 px-5">{{ data.age }}</td>
@@ -27,22 +19,14 @@
               (data.status & 2) == 2
                 ? "Nuxt App 3"
                 : (data.status & 1) == 1
-                ? "Nuxt App 2"
-                : "Unknown"
+                  ? "Nuxt App 2"
+                  : (data.status & 4) == 4 ? "Nextjs App" : (data.status & 1) == 1 ? "Reactjs-Generouted App" : "Unknown"
             }}
           </td>
           <td class="py-3 px-5">
             <div class="flex gap-3 justify-end" v-if="(data?.status & 2) == 2">
-              <font-awesome-icon
-                icon="fas fa-pencil"
-                class="cursor-pointer"
-                v-on:click="editDialog(data)"
-              />
-              <font-awesome-icon
-                icon="fas fa-trash"
-                class="cursor-pointer"
-                v-on:click="delDialog(data)"
-              />
+              <font-awesome-icon icon="fas fa-pencil" class="cursor-pointer" v-on:click="editDialog(data)" />
+              <font-awesome-icon icon="fas fa-trash" class="cursor-pointer" v-on:click="delDialog(data)" />
             </div>
           </td>
         </tr>

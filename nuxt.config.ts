@@ -16,8 +16,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     API_URL: process.env.NUXT_API_SECRET,
+    API_PATHNAME: process.env.NUXT_API_PATHNAME,
   },
+
   ssr: false,
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   modules: ["@nuxtjs/tailwindcss"],
+  compatibilityDate: "2025-01-15",
 });
